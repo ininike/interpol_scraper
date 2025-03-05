@@ -19,8 +19,9 @@ class InterpolScraper:
         self.chrome_options.add_argument("user-agent=Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36")
         self.service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=self.service, options=self.chrome_options)
-
-    def search(self, keyword: str) -> list:
+        
+    @staticmethod
+    async def search(self, keyword: str) -> list:
         """Search Interpol site based on a keyword"""
         html = self._get_results(keyword)
         if html:
@@ -35,7 +36,6 @@ class InterpolScraper:
             self.driver.get(url)
             time.sleep(5)
             html = self.driver.page_source
-            print(html)
             return html
         except Exception as e:
             print("Error:", e)
@@ -63,8 +63,3 @@ class InterpolScraper:
     def __del__(self):
         """Ensure the WebDriver is properly closed when the object is deleted"""
         self.driver.quit()
-
-if __name__ == "__main__":
-    scraper = InterpolScraper()
-    results = scraper.search("us")
-    print(results)
