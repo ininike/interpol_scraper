@@ -48,7 +48,8 @@ class InterpolScraper:
             {
                 "type": result.select_one(".search__resultItem--type").text.strip(),
                 "title": result.select_one(".search__resultItem--mainTitle").text.strip(),
-                "link": self._format_link(result.select_one("a").get("href"))
+                "link": self._format_link(result.select_one("a").get("href")),
+                "img": self._format_link(result.select_one("img").get("src")) if result.select_one("img") else None
             }
             for result in soup.select(".search__resultsBlock--result")
         ]
