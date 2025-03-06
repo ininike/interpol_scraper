@@ -20,7 +20,6 @@ class InterpolScraper:
         self.service = Service(ChromeDriverManager().install())
         self.driver = webdriver.Chrome(service=self.service, options=self.chrome_options)
         
-    @staticmethod
     async def search(self, keyword: str) -> list:
         """Search Interpol site based on a keyword"""
         html = self._get_results(keyword)
