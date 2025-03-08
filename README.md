@@ -23,10 +23,10 @@ This script is designed to scrape search results from the Interpol website using
 
 1. Ensure that you have Chrome installed on your system.
 
-2. Run the [interpol-scraper.py](http://_vscodecontentref_/1) script:
+2. Run the [interpol-scraper.py](https://github.com/ininike/interpol_scraper/blob/main/interpol-scraper.py) script:
 
     ```bash
     python interpol-scraper.py
     ```
 
-3. The script will perform a search on the Interpol website based on the keyword provided in the [search](http://_vscodecontentref_/2) method and print the extracted results.
+3. The script will perform a search on the Interpol website based on the keyword provided in the `search` method and print the extracted results.
